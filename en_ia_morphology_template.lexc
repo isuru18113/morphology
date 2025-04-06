@@ -1,64 +1,108 @@
 Multichar_Symbols
-	+N	! Noun tag
-        +Sg	! Singular
-        +Pl	! Plural
- 	+Poss	! Possessive form
+    ! Noun tags
+    +N      ! Noun tag
+    +Sg     ! Singular
+    +Pl     ! Plural
+    +Poss   ! Possessive form
+    
+    ! Verb tags
+    +V      ! Verb tag
+    +Inf    ! Infinitive
+    +Pres3Sg ! 3rd person singular present
+    +Past   ! Past tense
+    +Prog   ! Progressive/gerund
 
 LEXICON Root
-	Nouns ; ! No input, no output
+    Nouns ;  ! Noun entries
+    Verbs ;  ! Verb entries
 
-!
-! NOUNS start here
-!
-
+! ========== NOUNS ==========
 LEXICON Nouns
-
-cat	N ;
-dog	N ;
-
-church	  N_s ;
-kiss	  N_s ;
-
-beauty:beaut	N_y ;
-sky:sk		N_y ;
-
-
-! The noun lexica N and Num are used for stems without any alternation
+    cat     N ;
+    dog     N ;
+    church  N_s ;
+    kiss    N_s ;
+    beauty:beaut N_y ;
+    sky:sk  N_y ;
 
 LEXICON N
-+N:0	Num ;
+    +N:0    Num ;
 
 LEXICON Num
-+Sg:0	PossWithS ;
-+Pl:s	PossWithoutS ;
-
-! The noun lexica N_s and Num_s are used for stems that end in a sibilant
-! and need an extra inserted "e"
+    +Sg:0   PossWithS ;
+    +Pl:s   PossWithoutS ;
 
 LEXICON N_s
-+N:0	Num_s ;
+    +N:0    Num_s ;
 
 LEXICON Num_s
-+Sg:0	PossWithS ;
-+Pl:es	PossWithoutS ;
-
-! The noun lexica N_y and Num_y are used for stems with "y" -> "ie" alternation
+    +Sg:0   PossWithS ;
+    +Pl:es  PossWithoutS ;
 
 LEXICON N_y
-+N:0	Num_y ;
+    +N:0    Num_y ;
 
 LEXICON Num_y
-+Sg:y	PossWithS ;
-+Pl:ies	PossWithoutS ;
-
-! Possessive endings: usually the singular is 's and the plural is '
+    +Sg:y   PossWithS ;
+    +Pl:ies PossWithoutS ;
 
 LEXICON PossWithS
-+Poss:'s     # ;
-	     # ; ! No ending: no input, no output
+    +Poss:'s    # ;
+    # ;  ! No ending
 
 LEXICON PossWithoutS
-+Poss:'	     # ;
-	     # ; ! No ending: no input, no output
+    +Poss:'     # ;
+    # ;  ! No ending
+
+! ========== VERBS ==========
+LEXICON Verbs
+    jump    V ;     ! Regular verb (add -s, -ed, -ing)
+    live    V_e ;   ! Ends with silent -e (drop -e before -ing)
+    wash    V_s ;   ! Ends with sibilant (add -es for 3rd person)
+    try     V_y ;   ! Ends with -y (change to -ies for 3rd person)
+
+! Regular verbs (e.g., "jump")
+LEXICON V
+    +V:0    Tense ;
+
+! Verbs ending in silent -e (e.g., "live")
+LEXICON V_e
+    +V:0    Tense_e ;
+
+! Verbs ending in sibilant (e.g., "wash")
+LEXICON V_s
+    +V:0    Tense_s ;
+
+! Verbs ending in -y (e.g., "try")
+LEXICON V_y
+    +V:0    Tense_y ;
+
+! Tense inflection for regular verbs
+LEXICON Tense
+    +Inf:0      # ;    ! jump
+    +Pres3Sg:s  # ;    ! jumps
+    +Past:ed    # ;    ! jumped
+    +Prog:ing   # ;    ! jumping
+
+! Tense inflection for silent -e verbs
+LEXICON Tense_e
+    +Inf:0      # ;    ! live
+    +Pres3Sg:s  # ;    ! lives
+    +Past:ed    # ;    ! lived
+    +Prog:ing   # ;    ! living (drop -e)
+
+! Tense inflection for sibilant-ending verbs
+LEXICON Tense_s
+    +Inf:0      # ;    ! wash
+    +Pres3Sg:es # ;    ! washes
+    +Past:ed    # ;    ! washed
+    +Prog:ing   # ;    ! washing
+
+! Tense inflection for -y ending verbs
+LEXICON Tense_y
+    +Inf:0      # ;    ! try
+    +Pres3Sg:ies # ;   ! tries
+    +Past:ed    # ;    ! tried
+    +Prog:ing   # ;    ! trying
 
 END
