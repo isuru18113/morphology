@@ -13,9 +13,9 @@ LEXICON Nouns
 මල       N ;  ! Flower
 පැන්සල   N ;  ! Pencil
 
-! Noun processing (modified to hide stem marker)
+
 LEXICON N
-+N:0    Num ;  ! Changed from ^ to 0 to prevent marker display
++N:0    Num ;  
 
 ! Pluralization rules
 LEXICON Num
