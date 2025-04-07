@@ -21,6 +21,6 @@ LEXICON N
 LEXICON Num
 +Sg:0   # ;    ! Singular form
 +Pl:්   # ;    ! Plural form (hal kirīma)
-       
+        # ;    ! Alternative form
 
 END
