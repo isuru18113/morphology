@@ -1,0 +1,53 @@
+Multichar_Symbols
+    +N      ! Noun tag
+    +Sg     ! Singular
+    +Pl     ! Plural
+
+LEXICON Root
+    Nouns ;
+
+! Sinhala Nouns grouped by final consonant+ා
+LEXICON Nouns
+පූසා:පූ    N_sa ;  ! පූසා → පූසෝ (සා→සෝ)
+අශ්වයා:අශ්ව  N_ya ;  ! අශ්වයා → අශ්වයෝ (යා→යෝ)
+කුරුල්ලා:කුරුල් N_la ;  ! කුරුල්ලා → කුරුල්ලෝ (ලා→ලෝ)
+මුවා:මු     N_va ;  ! මුවා → මුවෝ (වා→වෝ)
+බල්ලා:බල්   N_la ; ! බල්ලා → බල්ලෝ (ලා→ලෝ)
+
+! Lexicons for each consonant type
+LEXICON N_sa
++N:0    Num_sa ;
+
+LEXICON N_ya
++N:0    Num_ya ;
+
+LEXICON N_la
++N:0    Num_la ;
+
+LEXICON N_va
++N:0    Num_va ;
+
+
+
+! Pluralization rules per consonant
+LEXICON Num_sa
++Sg:සා  # ;    ! Singular: add සා
++Pl:සෝ # ;    ! Plural: replace with සෝ
+       # ;
+
+LEXICON Num_ya
++Sg:යා  # ;    ! Singular: add යා
++Pl:යෝ # ;    ! Plural: replace with යෝ
+       # ;
+
+LEXICON Num_la
++Sg:ලා  # ;    ! Singular: add ලා
++Pl:ලෝ # ;    ! Plural: replace with ලෝ
+       # ;
+
+LEXICON Num_va
++Sg:වා  # ;    ! Singular: add වා
++Pl:වෝ # ;    ! Plural: replace with වෝ
+       # ;
+
+END

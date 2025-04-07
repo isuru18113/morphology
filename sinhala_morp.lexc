@@ -1,0 +1,26 @@
+Multichar_Symbols
+    +N      ! Noun tag
+    +Sg     ! Singular
+    +Pl     ! Plural
+
+LEXICON Root
+    Nouns ;
+
+! Sinhala Nouns
+LEXICON Nouns
+ගස       N ;  ! Tree
+පොත      N ;  ! Book
+මල       N ;  ! Flower
+පැන්සල   N ;  ! Pencil
+
+! Noun processing (modified to hide stem marker)
+LEXICON N
++N:0    Num ;  ! Changed from ^ to 0 to prevent marker display
+
+! Pluralization rules
+LEXICON Num
++Sg:0   # ;    ! Singular form
++Pl:්   # ;    ! Plural form (hal kirīma)
+        # ;    ! Alternative form
+
+END
