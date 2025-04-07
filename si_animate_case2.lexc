@@ -1,0 +1,31 @@
+Multichar_Symbols
+    +N      ! Noun
+    +Sg     ! Singular
+    +Pl     ! Plural
+    +Poss   ! Possessive
+
+LEXICON Root
+    Nouns ;
+
+LEXICON Nouns
+    දරුවා    N ;
+    මිතුරා   N ;
+    ගුරුතුමා N ;
+    
+
+LEXICON N
+    +N:^    Num ;
+
+LEXICON Num
+    +Sg:0      PossWithS ;
+    +Pl:න්     PossWithoutS ;   ! Plural: just add න්
+
+LEXICON PossWithS
+    +Poss:ගේ   # ;
+               # ;
+
+LEXICON PossWithoutS
+    +Poss:ගේ   # ;
+               # ;
+
+END
